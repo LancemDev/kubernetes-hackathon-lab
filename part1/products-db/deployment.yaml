@@ -17,10 +17,3 @@ spec:
           image: widgetario/products-db:21.03
           ports:
             - containerPort: 5432
-          volumeMounts:
-            - name: db-storage
-              mountPath: /var/lib/postgresql/data
-      volumes:
-        - name: db-storage
-          persistentVolumeClaim:
-            claimName: db-pvc

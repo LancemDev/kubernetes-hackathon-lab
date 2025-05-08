@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: products-api
+  name: stock-api
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: products-api
+      app: stock-api
   template:
     metadata:
       labels:
-        app: products-api
+        app: stock-api
     spec:
       containers:
-        - name: products-api
-          image: widgetario/products-api:21.03
+        - name: stock-api
+          image: widgetario/stock-api:21.03
           ports:
             - containerPort: 8080
