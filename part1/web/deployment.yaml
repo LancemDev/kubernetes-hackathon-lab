@@ -1,22 +1,15 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: web
+  name: stock-api
+  labels:
+    kubernetes.courselabs.co: hackathon
+    app: widgetario
 spec:
-  replicas: 1
+  ports:
+    - port: 8080
+      targetPort: http
   selector:
-    matchLabels:
-      app: web
-  template:
-    metadata:
-      labels:
-        app: web
-    spec:
-      containers:
-        - name: web
-          image: widgetario/web:21.03
-          ports:
-            - containerPort: 80
-          env:
-            - name: ASPNETCORE_URLS
-              value: http://0.0.0.0:5000
+    app: widgetario
+    component: stock-api
+  type: ClusterIP
