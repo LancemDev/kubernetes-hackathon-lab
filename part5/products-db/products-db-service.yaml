@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: widgetario-web-internal
+  name: products-db
   labels:
     kubernetes.courselabs.co: hackathon
     app: widgetario
 spec:
   ports:
-    - name: http
-      port: 80
-      targetPort: http
-  selector:  
+    - port: 5432
+      targetPort: postgres
+  selector:
     app: widgetario
-    component: web
+    component: products-db
   type: ClusterIP
+  clusterIP: None

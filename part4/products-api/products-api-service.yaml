@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: widgetario-web-internal
+  name: products-api
   labels:
     kubernetes.courselabs.co: hackathon
     app: widgetario
@@ -10,7 +10,7 @@ spec:
     - name: http
       port: 80
       targetPort: http
-  selector:  
+  selector:
     app: widgetario
-    component: web
+    component: products-api
   type: ClusterIP
